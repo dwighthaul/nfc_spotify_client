@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+ul {
+  padding: 20px;
+}
+
+.app {
+  /*
+  width: 100%;
+  /* Pour prendre toute la largeur de l'écran */
+  height: 90vh;
+  /* Pour prendre toute la hauteur de l'écran */
+  padding: 40px;
+  /* Ajout de transparence */
+  background-image: url('background-image.png');
+  /* Remplacez 'background-image.jpg' par votre image de fond */
+  background-size: cover;
+  /* Pour que l'image couvre entièrement le conteneur */
+  background-position: center;
+  background-attachment: fixed;
+  /* Pour que l'image reste fixe pendant le défilement */
+  flex-direction: column;
+  overflow: auto;
+}
+
+
+.app-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+
+}
