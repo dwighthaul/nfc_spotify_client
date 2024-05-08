@@ -1,6 +1,6 @@
 const { HTTPMethod } = require('http-method-enum')
 
-const BASE_URL = 'http://dwighthaul.net:3001'
+const BASE_URL = 'http://dwighthaul.net:3000'
 
 class ServerService {
 

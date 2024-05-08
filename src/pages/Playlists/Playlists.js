@@ -76,10 +76,11 @@ function Playlists() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
+  //  https://dwighthaul.net:3000/
 
   return (
     <div>
-      {button && <a target="_blank" rel="noreferrer" href="http://localhost:3001/api/v1/login_spotify" buttonstyle='btn--outline' >SIGN UP</a>}
+      {button && <a target="_blank" rel="noreferrer" href="http://dwighthaul.net:3000/api/v1/login_spotify" buttonstyle='btn--outline' >SIGN UP</a>}
 
       <select onChange={(e) => setselectedPlaylist(e.target.value)}>
         <option value="" disabled selected>Sélectionner une playlist</option>
