@@ -1,15 +1,15 @@
 const { HTTPMethod } = require('http-method-enum')
 
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'http://localhost:3000'
 
 class ServerService {
 
 	// Private function
-	static #getData(endPoint, httpMethod, callbackSuccess, callbackError) {
+	static #getData(endPoint, callbackSuccess, callbackError) {
 
 		fetch(`${BASE_URL}/${endPoint}`, {
 			headers: { 'Content-Type': 'application/json' },
-			"method": httpMethod,
+			"method": HTTPMethod.GET,
 			"credentials": 'include',
 			mode: 'cors'
 		})
@@ -29,11 +29,11 @@ class ServerService {
 			});
 	}
 	// Private function
-	static #postData(endPoint, httpMethod, body, callbackSuccess, callbackError) {
+	static #postData(endPoint, body, callbackSuccess, callbackError) {
 
 		fetch(`${BASE_URL}/${endPoint}`, {
 			headers: { 'Content-Type': 'application/json' },
-			"method": httpMethod,
+			"method": HTTPMethod.POST,
 			"credentials": 'include',
 			"body": JSON.stringify(body),
 			mode: 'cors'
@@ -57,21 +57,20 @@ class ServerService {
 	}
 
 	static fetchPlaylists = (callbackSuccess, callbackError) => {
-		ServerService.#getData('api/v1/playlists', HTTPMethod.GET, callbackSuccess, callbackError)
+		ServerService.#getData('api/v1/playlists', callbackSuccess, callbackError)
 	}
 
 	static lancerPlaylist(selectedDevice, selectedPlaylist, callbackSuccess, callbackError) {
 		let endPoint = 'api/v1/launch_song/?id_device=' + selectedDevice + '&playlist_uri=' + selectedPlaylist
-		ServerService.#getData(endPoint, HTTPMethod.GET, callbackSuccess, callbackError)
+		ServerService.#getData(endPoint, callbackSuccess, callbackError)
 	}
 
-
 	static fetchDevices = (callbackSuccess, callbackError) => {
-		ServerService.#getData('api/v1/devices', HTTPMethod.GET, callbackSuccess, callbackError)
+		ServerService.#getData('api/v1/devices', callbackSuccess, callbackError)
 	}
 
 	static fetchUserInfos = (callbackSuccess, callbackError) => {
-		ServerService.#getData('getSession', HTTPMethod.GET, callbackSuccess, callbackError)
+		ServerService.#getData('getSession', callbackSuccess, callbackError)
 	}
 
 	static sendLogin = (username, password, callbackSuccess, callbackError) => {
@@ -79,7 +78,7 @@ class ServerService {
 			username: username,
 			password: password
 		}
-		ServerService.#postData('login', HTTPMethod.POST, body, callbackSuccess, callbackError)
+		ServerService.#postData('login', body, callbackSuccess, callbackError)
 	}
 
 }
