@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import ServerService from '../../../services/ServerService';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const [isConnected, setIsConnected] = useState(true);
+  const [isDisplayDropDown, setIsDisplayDropDown] = useState(false);
 
   const [username, setUsername] = useState('');
 
@@ -13,7 +14,7 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 500) {
       setButton(false);
     } else {
       setButton(true);
@@ -21,17 +22,14 @@ function Navbar() {
   };
 
   const getDataFromUser = () => {
-    ServerService.fetchUserInfos((data) => {
+    setIsConnected(sessionStorage.getItem("isConnected"))
+    setUsername(sessionStorage.getItem("username"))
 
-      if (data?.user?.username) {
-        console.log(data)
-        setUsername(data?.user?.username)
-      }
-
-    }, (error) => {
-
-    });
   };
+
+  const toggleDtopDown = () => {
+    setIsDisplayDropDown(!isDisplayDropDown)
+  }
 
   useEffect(() => {
     showButton();
@@ -44,8 +42,12 @@ function Navbar() {
   window.addEventListener('resize', showButton);
 
 
+
+
+
   return (
     <>
+
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
@@ -56,18 +58,35 @@ function Navbar() {
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
+            <div className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}> Home </Link>
-            </li>
-            <li className='nav-item'>
+            </div>
+            <div className='nav-item'>
               <Link to='/playlist' className='nav-links' onClick={closeMobileMenu}> Playlist</Link>
-            </li>
-            <li>
-              <Link to='/sign-in' className='nav-links' onClick={closeMobileMenu}> Sign In</Link>
-            </li>
-            <li>
-              <p className='nav-links' > {username}</p>
-            </li>
+            </div>
+            <div className='nav-item'>
+              <Link to='/dashboard' className='nav-links' onClick={closeMobileMenu}> Dashboard</Link>
+            </div>
+            <div className='nav-item'>
+              {isConnected ? (
+                <Link className='nav-links' onClick={toggleDtopDown}> {username} {isDisplayDropDown ? "▲" : "▼"}</Link>
+              ) : (
+                <Link to='/sign-in' className='nav-links' onClick={closeMobileMenu}>Login</Link>
+              )}
+
+              {
+                isDisplayDropDown ?
+                  <div className='navbar navbar-dropdown'>
+                    <div className='nav-item'>
+                      <Link to='/settings' className='nav-links' onClick={closeMobileMenu}>Settings</Link>
+                    </div>
+                    <div className='nav-item'>
+                      <Link to='/logout' className='nav-links' onClick={closeMobileMenu}> Log out</Link>
+                    </div>
+                  </div>
+                  : ""
+              }
+            </div>
           </ul>
         </div>
       </nav>

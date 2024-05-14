@@ -13,7 +13,10 @@ const SignIn = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    ServerService.sendLogin(username, password, () => {
+    ServerService.sendLogin(username, password, (data) => {
+
+      sessionStorage.setItem("username", data.username)
+      sessionStorage.setItem("isConnected", true)
       console.log("Login OK")
       navigate("/home");
 

@@ -1,13 +1,15 @@
 .navbar {
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-  height: 10vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 1.2rem;
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.navbar-dropdown {
+  flex-direction: column;
 }
 
 .navbar-container {
@@ -36,17 +38,18 @@
 
 .nav-menu {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(10, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
   width: 60vw;
   justify-content: end;
   margin-right: 2rem;
+  justify-content: right;
 }
 
 .nav-item {
-  height: 80px;
+  height: 10vh;
 }
 
 .nav-links {

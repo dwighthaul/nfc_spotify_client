@@ -49,13 +49,17 @@ a:hover {
 button,
 input[type="submit"] {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: #333;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+button {
+  width: 100%;
 }
 
 button:hover,
@@ -70,8 +74,8 @@ input[type="password"],
 textarea,
 select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: none;
@@ -87,6 +91,11 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: #007bff;
+}
+
+fieldset {
+  padding: 15px;
+  margin: 15px;
 }
 
 /* Sections */
@@ -118,7 +127,139 @@ select:focus {
 }
 
 
+ul {
+  padding: 20px;
+}
 
 .float_r {
   float: right;
+}
+
+
+/* Style de base pour le tableau */
+table {
+  border-collapse: collapse;
+  overflow-wrap: break-word;
+  width: 100%;
+
+
+  table-layout: fixed;
+}
+
+/* Style des cellules du tableau */
+td,
+th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style de l'en-tête du tableau */
+th {
+  background-color: #f2f2f2;
+}
+
+/* Style des lignes impaires du tableau */
+tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Style des lignes au survol */
+tr:hover {
+  background-color: #eaeaea;
+}
+
+
+
+/* The Modal (background) */
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 8% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 20px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.rouge {
+  background: darkred;
+}
+
+.vert {
+  background: darkgreen;
+}
+
+
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.flex-none {
+  flex: none;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-item-1 {
+  flex: 1;
+}
+
+.flex-item-2 {
+  flex: 2;
+}
+
+.flex-item-3 {
+  flex: 3;
+}
+
+.flex-item-4 {
+  flex: 4;
+}
+
+.flex-item-5 {
+  flex: 5;
+}
+
+.flex-item-6 {
+  flex: 6;
 }

@@ -73,6 +73,10 @@ class ServerService {
 		ServerService.#getData('getSession', callbackSuccess, callbackError)
 	}
 
+	static fetchUsersInfos = (callbackSuccess, callbackError) => {
+		ServerService.#getData('getUsers', callbackSuccess, callbackError)
+	}
+
 	static sendLogin = (username, password, callbackSuccess, callbackError) => {
 		let body = {
 			username: username,
@@ -80,6 +84,12 @@ class ServerService {
 		}
 		ServerService.#postData('login', body, callbackSuccess, callbackError)
 	}
+
+	static sendLogOut = (callbackSuccess, callbackError) => {
+		var body = {}
+		ServerService.#postData('logout', body, callbackSuccess, callbackError)
+	}
+
 
 }
 

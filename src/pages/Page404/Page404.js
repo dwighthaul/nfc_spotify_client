@@ -4,7 +4,7 @@ function Page404() {
 		<>
 			<h1>404 Page not found</h1>
 			<div>
-				<p>"Oups! Il semble que nous ayons pris un chemin de travers! 🚀 Nous sommes un peu perdus dans l'espace intersidéral de l'internet. Pendant que nous essayons de recalculer nos coordonnées, pourquoi ne pas prendre une pause intergalactique? Voici quelques faits surprenants sur les trous noirs pendant que vous attendez:
+				<div>"Oups! Il semble que nous ayons pris un chemin de travers! 🚀 Nous sommes un peu perdus dans l'espace intersidéral de l'internet. Pendant que nous essayons de recalculer nos coordonnées, pourquoi ne pas prendre une pause intergalactique? Voici quelques faits surprenants sur les trous noirs pendant que vous attendez:
 					<ul>
 						<li>
 							Les trous noirs sont comme des aspirateurs cosmiques, aspirant tout ce qui se trouve à proximité, y compris la lumière.
@@ -20,7 +20,7 @@ function Page404() {
 						</li>
 					</ul>
 
-				</p>
+				</div>
 			</div>
 		</>
 	);
