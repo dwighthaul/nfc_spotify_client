@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ServerService from '../../services/ServerService';
 const { HTTPMethod } = require('http-method-enum')
 
+
 function Playlists() {
   const [playlists, setPlaylist] = useState([]);
   const [devices, setDevices] = useState([]);
@@ -24,7 +25,6 @@ function Playlists() {
   }
 
   useEffect(() => {
-
     const getPlaylist = () => {
       ServerService.fetchPlaylists((data) => {
 
@@ -36,7 +36,6 @@ function Playlists() {
       }, (error) => {
       });
     }
-
 
     const getDevices = () => {
       ServerService.fetchDevices((data) => {
@@ -55,8 +54,6 @@ function Playlists() {
 
   return (
     <div>
-      {button && <a target="_blank" rel="noreferrer" href="http://localhost:3000/api/v1/login_spotify" buttonstyle='btn--outline' >SIGN UP</a>}
-
       <select onChange={(e) => setselectedPlaylist(e.target.value)}>
         <option value="" disabled selected>Sélectionner une playlist</option>
         {playlists.map(option => (

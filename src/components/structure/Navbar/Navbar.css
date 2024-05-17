@@ -61,6 +61,10 @@
   height: 100%;
 }
 
+.nav-links-highlight {
+  color: red;
+}
+
 .nav-links:hover {
   border-bottom: 4px solid #fff;
   transition: all 0.2s ease-out;

@@ -1,0 +1,5 @@
+1) Arrive sur la page :
+    Afficher Acceuil
+    Menu [ SignIn, SignUp]
+
+
