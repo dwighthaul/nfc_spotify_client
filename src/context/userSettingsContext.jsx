@@ -12,6 +12,9 @@ export const UserSettingsProvider = ({ children }) => {
 
 
   const userHasClienIdAndSecret = (settingsOk) => {
+    // On sauvegarde dans la session au cas ou une refresh f5 est fait=> comme ça ça permet de regarder si SettingsAreOk 
+    // existe au moment du montage du contexte
+    sessionStorage.setItem("SettingsAreOk", settingsOk);
     setIsClientIdAndSecret(settingsOk);
   };
 

@@ -3,13 +3,30 @@ import { Link, useNavigate } from "react-router-dom";
 import ServerService from '../../services/ServerService';
 import { UserSettingsContext } from '../../context/userSettingsContext';
 
+function openNewWindow(url) {
+  // Define properties for the new window
+  const windowFeatures = {
+    noreferrer: true, // Equivalent to rel="noreferrer"
+    noopener: true,   // Equivalent to rel="noopener"
+  };
+
+  // Construct a string of properties
+  const features = Object.keys(windowFeatures)
+    .map(key => `${key}=${windowFeatures[key]}`)
+    .join(',');
+
+  // Open the new window with specified URL and properties
+  window.open(url, '_blank', features);
+}
+
+
 export default function Settings () 
 {
   const [clientId, setClientId] = useState('');
 
   const [clientSecret, setClientSecret] = useState('');
 
-  const { userHasClienIdAndSecret } = UserSettingsContext();
+  const { isClientIdAndSecret, userHasClienIdAndSecret } = UserSettingsContext();
   const navigate = useNavigate();
 
 
@@ -17,9 +34,13 @@ export default function Settings ()
   const handleSubmit = (event) => {
     event.preventDefault();
     ServerService.saveSpotifyClient(clientId, clientSecret, () => {
-      // Pareil ici il y a une logique de validation qui devrait transparaitre de maniere plus evidente
+      // Pareil ici il y a une logique de validation qui devrait transparaitre de maniere plus evidente (ou au moins dans un module réutilisable)
         if (clientId != '' && clientSecret != '') {
-          userHasClienIdAndSecret(true); 
+            // On a pas encore fait la redirection
+            if (isClientIdAndSecret == false) {
+              openNewWindow("http://localhost:3000/api/v1/login_spotify");
+            }
+            userHasClienIdAndSecret(true); 
         } 
         else {
           userHasClienIdAndSecret(false); 

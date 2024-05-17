@@ -112,7 +112,7 @@ class ServerService {
 
 	static sendLogOut = (callbackSuccess, callbackError) => {
 		var body = {}
-		ServerService.#postData('logout', body, callbackSuccess, callbackError)
+		ServerService.#postDataNoReturnData('logout', body, callbackSuccess, callbackError)
 	}
 
 	static saveSpotifyClient = (clientId, clientSecret, callbackSuccess, callbackError) => {

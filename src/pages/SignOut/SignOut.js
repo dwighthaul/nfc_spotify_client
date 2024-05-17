@@ -9,13 +9,11 @@ function Sign() {
 
 
 	useEffect(() => {
-		//console.log(sessionStorage.getItem("username"))
-
 		sessionStorage.removeItem("isConnected")
 		sessionStorage.removeItem("username")
 		ServerService.sendLogOut(() => {
 			console.log("Je logout");
-			//userIsDisconnected(); // Notify l'ensemble de l'app de la deconnection
+			userIsDisconnected(); // Notify l'ensemble de l'app de la deconnection
 		}, () => { })
 	}, [])
 

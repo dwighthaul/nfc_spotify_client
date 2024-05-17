@@ -15,7 +15,6 @@ export const UserProvider = ({ children }) => {
   };
 
   const userIsDisconnected = () => {
-    console.log("I say I disconnect the user");
     setIsConnected(false);
   };
 

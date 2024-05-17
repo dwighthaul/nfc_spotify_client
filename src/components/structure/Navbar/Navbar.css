@@ -6,6 +6,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
+
 }
 
 .navbar-dropdown {
@@ -14,10 +15,11 @@
 
 .navbar-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 80px;
-  max-width: 1500px;
+  /* max-width: 1500px; */ 
+  flex-grow: 1;
 }
 
 .navbar-logo {
@@ -39,13 +41,12 @@
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(10, auto);
-  grid-gap: 10px;
+  grid-gap: 5px;
   list-style: none;
   text-align: center;
   width: 60vw;
   justify-content: end;
   margin-right: 2rem;
-  justify-content: right;
 }
 
 .nav-item {
@@ -61,6 +62,7 @@
   height: 100%;
 }
 
+/* Pour montrer qu'il y a un probleme */
 .nav-links-highlight {
   color: red;
 }
