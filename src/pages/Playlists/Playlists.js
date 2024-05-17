@@ -7,8 +7,7 @@ function Playlists() {
   const [selectedPlaylist, setselectedPlaylist] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState(null);
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const urlRedirection = `http://${process.env.REACT_APP_SERVEUR_ENDPOINT}:${process.env.REACT_APP_SERVEUR_PORT}/api/v1/login_spotify`
 
   const [button] = useState(true);
 
@@ -31,18 +30,10 @@ function Playlists() {
 
         if (data && data.items) {
           setPlaylist(data.items);
-          setLoading(false);
-
-        } else {
-          setError(error);
-          setLoading(false);
 
         }
 
       }, (error) => {
-
-        setError(error);
-        setLoading(false);
       });
     }
 
@@ -52,35 +43,21 @@ function Playlists() {
 
         if (data && data.devices) {
           setDevices(data.devices);
-          setLoading(false);
-
-        } else {
-          setError(error);
-          setLoading(false);
         }
 
       }, (error) => {
-
-        setError(error);
-        setLoading(false);
       });
     }
     getPlaylist();
     getDevices();
   }, []); // Empty dependency array ensures this effect runs only once after the initial render
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
-  //  https://dwighthaul.net:3000/
 
   return (
     <div>
-      {button && <a target="_blank" rel="noreferrer" href="http://dwighthaul.net:3000/api/v1/login_spotify" buttonstyle='btn--outline' >SIGN UP</a>}
+
+
+      {button && <a target="_blank" rel="noreferrer" href={urlRedirection} buttonstyle='btn--outline' >SIGN UP</a>}
 
       <select onChange={(e) => setselectedPlaylist(e.target.value)}>
         <option value="" disabled selected>Sélectionner une playlist</option>
