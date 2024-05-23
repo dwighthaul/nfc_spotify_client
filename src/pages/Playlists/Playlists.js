@@ -7,8 +7,8 @@ function Playlists() {
   const [selectedPlaylist, setselectedPlaylist] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState(null);
 
-  const urlRedirection = `https://${process.env.REACT_APP_SERVEUR_ENDPOINT}:${process.env.REACT_APP_SERVEUR_PORT}/api/v1/login_spotify`
-
+  const urlRedirection = `https://${process.env.REACT_APP_SERVEUR_ENDPOINT}/api/v1/login_spotify`
+  //:${process.env.REACT_APP_SERVEUR_PORT}
   const [button] = useState(true);
 
 
