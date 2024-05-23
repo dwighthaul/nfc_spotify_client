@@ -1,6 +1,6 @@
 const { HTTPMethod } = require('http-method-enum')
 
-const BASE_URL = `https://${process.env.REACT_APP_SERVEUR_ENDPOINT}`
+const BASE_URL = `${process.env.REACT_APP_SERVEUR_ENDPOINT}`
 //:${process.env.REACT_APP_SERVEUR_PORT}
 
 class ServerService {
