@@ -4,7 +4,9 @@ import ServerService from '../../services/ServerService';
 function Home() {
 
   const getCookies = () => {
+    console.log("Get Cookies")
     ServerService.getCookies((result) => {
+      console.log("Get Cookies OK")
       console.log(result)
     }, (error) => {
       console.log(error)
