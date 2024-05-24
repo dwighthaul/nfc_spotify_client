@@ -17,7 +17,7 @@ class ServerService {
 				if (!response.ok) {
 					callbackError(response)
 					throw new Error('Failed to fetch data');
-				}		
+				}
 				return response.json();
 			})
 			.then(data => {
@@ -40,7 +40,7 @@ class ServerService {
 			mode: 'cors'
 		})
 			.then(response => {
-				
+
 				//				callbackError(response)
 				if (!response.ok) {
 
@@ -102,7 +102,7 @@ class ServerService {
 	static fetchCliendIdAndSecret = (callbackSuccess, callbackError) => {
 		ServerService.#getData('getClientIdAndSecret', callbackSuccess, callbackError)
 	}
-	
+
 
 	static sendLogin = (username, password, callbackSuccess, callbackError) => {
 		let body = {
@@ -123,6 +123,11 @@ class ServerService {
 			clientSecret: clientSecret
 		}
 		ServerService.#postDataNoReturnData('updateSettings', body, callbackSuccess, callbackError)
+	}
+
+
+	static getCookies = (callbackSuccess, callbackError) => {
+		ServerService.#getData('getCookies', callbackSuccess, callbackError)
 	}
 }
 

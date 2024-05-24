@@ -1,11 +1,21 @@
 import React from 'react';
+import ServerService from '../../services/ServerService';
 
 function Home() {
 
+  const getCookies = () => {
+    ServerService.getCookies((result) => {
+      console.log(result)
+    }, (error) => {
+      console.log(error)
+    })
+
+  }
 
   return (
     <>
       <h1>Spotify Connect - 2</h1>
+      <button onClick={getCookies()}>GetCookies</button>
       <div>
         <p>
           "Entrez dans un tout nouveau monde d'expérience musicale avec Spotify Connect, l'outil ultime pour harmoniser votre musique avec votre vie. Imaginez-vous contrôler la bande sonore de votre journée, que vous soyez en train de cuisiner dans la cuisine, de vous détendre dans le salon ou même de faire la fête avec des amis. Avec Spotify Connect, c'est maintenant possible, sans interruption et sans effort.
