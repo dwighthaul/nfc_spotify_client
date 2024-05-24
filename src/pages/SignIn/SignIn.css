@@ -81,3 +81,10 @@
 .signup-container a:hover {
 	text-decoration: underline;
 }
+
+.failed-loggin {
+	font-size: 16px;
+	color:red;
+	margin-top: 20px;
+	margin-bottom : 5px;
+}

@@ -14,7 +14,7 @@ function Dashboard() {
 	useEffect(() => {
 		getUsers()
 	}, [])
-
+	 // Le tableau vide [] signifie que cet effet n'a pas de dépendances, donc il ne s'exécutera qu'une fois lors du montage initial
 
 
 	const getUsers = () => {
@@ -34,7 +34,6 @@ function Dashboard() {
 
 
 	const toggleEstEditerLigne = (user) => {
-		console.log(user.id)
 		setUserSelected(JSON.parse(JSON.stringify(user)))
 	}
 
@@ -66,7 +65,6 @@ function Dashboard() {
 				</thead>
 				<tbody>
 					{utilisateurs.map((user, rowIndex) => (
-
 						<tr key={user.id}>
 							<td>{user.id}</td>
 							<td>{user.username} </td>

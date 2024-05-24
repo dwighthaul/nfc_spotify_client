@@ -18,20 +18,19 @@ class ServerService {
 				if (!response.ok) {
 					callbackError(response)
 					throw new Error('Failed to fetch data');
-				}
+				}		
 				return response.json();
 			})
 			.then(data => {
-				console.log(data)
 				callbackSuccess(data)
 			})
 			.catch(error => {
 				callbackError(error)
 			});
 	}
+
 	// Private function
 	static #postData(endPoint, body, callbackSuccess, callbackError) {
-
 		fetch(`${BASE_URL}/${endPoint}`, {
 			headers: { 'Content-Type': 'application/json' },
 			"method": HTTPMethod.POST,
@@ -40,17 +39,37 @@ class ServerService {
 			mode: 'cors'
 		})
 			.then(response => {
-				console.log(response)
+				
 				//				callbackError(response)
 				if (!response.ok) {
-					callbackError("error")
+
+					//callbackError("error")
 					throw new Error('Failed to fetch data');
 				}
 				return response.json();
 			})
 			.then(data => {
-				console.log(data)
 				callbackSuccess(data)
+			})
+			.catch(error => {
+				callbackError(error)
+			});
+	}
+
+	static #postDataNoReturnData(endPoint, body, callbackSuccess, callbackError) {
+		fetch(`${BASE_URL}/${endPoint}`, {
+			headers: { 'Content-Type': 'application/json' },
+			"method": HTTPMethod.POST,
+			"credentials": 'include',
+			"body": JSON.stringify(body),
+			mode: 'cors'
+		})
+			.then(response => {
+				console.log();
+				if (response.status != 200) {
+					throw new Error('Failed to fetch data');
+				}
+				callbackSuccess()
 			})
 			.catch(error => {
 				callbackError(error)
@@ -78,6 +97,12 @@ class ServerService {
 		ServerService.#getData('getUsers', callbackSuccess, callbackError)
 	}
 
+
+	static fetchCliendIdAndSecret = (callbackSuccess, callbackError) => {
+		ServerService.#getData('getClientIdAndSecret', callbackSuccess, callbackError)
+	}
+	
+
 	static sendLogin = (username, password, callbackSuccess, callbackError) => {
 		let body = {
 			username: username,
@@ -88,10 +113,16 @@ class ServerService {
 
 	static sendLogOut = (callbackSuccess, callbackError) => {
 		var body = {}
-		ServerService.#postData('logout', body, callbackSuccess, callbackError)
+		ServerService.#postDataNoReturnData('logout', body, callbackSuccess, callbackError)
 	}
 
-
+	static saveSpotifyClient = (clientId, clientSecret, callbackSuccess, callbackError) => {
+		let body = {
+			clientId: clientId,
+			clientSecret: clientSecret
+		}
+		ServerService.#postDataNoReturnData('updateSettings', body, callbackSuccess, callbackError)
+	}
 }
 
 export default ServerService;

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ServerService from '../../services/ServerService';
+const { HTTPMethod } = require('http-method-enum')
+
 
 function Playlists() {
   const [playlists, setPlaylist] = useState([]);
@@ -7,8 +9,6 @@ function Playlists() {
   const [selectedPlaylist, setselectedPlaylist] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState(null);
 
-  const urlRedirection = `${process.env.REACT_APP_SERVEUR_ENDPOINT}/api/v1/login_spotify`
-  //:${process.env.REACT_APP_SERVEUR_PORT}
   const [button] = useState(true);
 
 
@@ -24,7 +24,6 @@ function Playlists() {
   }
 
   useEffect(() => {
-
     const getPlaylist = () => {
       ServerService.fetchPlaylists((data) => {
 
@@ -36,7 +35,6 @@ function Playlists() {
       }, (error) => {
       });
     }
-
 
     const getDevices = () => {
       ServerService.fetchDevices((data) => {
@@ -55,10 +53,6 @@ function Playlists() {
 
   return (
     <div>
-
-
-      {button && <a target="_blank" rel="noreferrer" href={urlRedirection} buttonstyle='btn--outline' >SIGN UP</a>}
-
       <select onChange={(e) => setselectedPlaylist(e.target.value)}>
         <option value="" disabled selected>Sélectionner une playlist</option>
         {playlists.map(option => (

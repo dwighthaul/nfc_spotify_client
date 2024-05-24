@@ -1,0 +1,15 @@
+Est ce qu'un composant est un composant car il a pr but d'être réutilisable ? 
+
+Pourquoi on a App.css et AppCss.css ? 
+
+Dans navbar c'est quoi la logique derriere showButton ?
+
+
+Il faudrait pouvoir enelver SpotifyConnect quand on resize la page
+
+
+<i className={click ? 'fas fa-times' : 'fas fa-bars'} /> => ça a l'air d'être pour le menu mobile 
+
+
+sessionStorage : ne sont pas partagées entre différents onglets du même navigateur. Si l'utilisateur ouvre plusieurs onglets de votre application, chaque onglet aura son propre état de session.
+=> Utiliser des cookies avec l'option HttpOnly et Secure pour stocker les tokens de session peut être une solution plus sécurisée, car les cookies HttpOnly ne sont pas accessibles via JavaScript, réduisant ainsi le risque d'attaques XSS.
