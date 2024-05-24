@@ -125,9 +125,12 @@ class ServerService {
 		ServerService.#postDataNoReturnData('updateSettings', body, callbackSuccess, callbackError)
 	}
 
+	static setCookies = (callbackSuccess, callbackError) => {
+		ServerService.#getData('set-cookie', callbackSuccess, callbackError)
+	}
 
 	static getCookies = (callbackSuccess, callbackError) => {
-		ServerService.#getData('getCookies', callbackSuccess, callbackError)
+		ServerService.#getData('get-cookie', callbackSuccess, callbackError)
 	}
 }
 
