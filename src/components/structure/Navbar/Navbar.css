@@ -13,6 +13,10 @@
   flex-direction: column;
 }
 
+.navbar-dropdown {
+  flex-direction: column;
+}
+
 .navbar-container {
   display: flex;
   justify-content: space-around;
@@ -47,6 +51,7 @@
   width: 60vw;
   justify-content: end;
   margin-right: 2rem;
+  justify-content: right;
 }
 
 .nav-item {

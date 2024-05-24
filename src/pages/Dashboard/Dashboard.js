@@ -34,8 +34,6 @@ function Dashboard() {
 
 
 	const toggleEstEditerLigne = (user) => {
-		console.log(user.id);
-		console.log(JSON.stringify(user));
 		setUserSelected(JSON.parse(JSON.stringify(user)))
 	}
 

@@ -1,12 +1,12 @@
 const { HTTPMethod } = require('http-method-enum')
 
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = `${process.env.REACT_APP_SERVEUR_ENDPOINT}`
+//:${process.env.REACT_APP_SERVEUR_PORT}
 
 class ServerService {
 
 	// Private function
 	static #getData(endPoint, callbackSuccess, callbackError) {
-
 		fetch(`${BASE_URL}/${endPoint}`, {
 			headers: { 'Content-Type': 'application/json' },
 			"method": HTTPMethod.GET,
@@ -30,6 +30,8 @@ class ServerService {
 
 	// Private function
 	static #postData(endPoint, body, callbackSuccess, callbackError) {
+		console.log(BASE_URL)
+
 		fetch(`${BASE_URL}/${endPoint}`, {
 			headers: { 'Content-Type': 'application/json' },
 			"method": HTTPMethod.POST,

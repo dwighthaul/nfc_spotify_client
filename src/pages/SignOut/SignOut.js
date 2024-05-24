@@ -17,7 +17,7 @@ function Sign() {
 		}, () => { })
 	}, [])
 
-
+	// TODO : rajouter un timer pour renvoyer sur la home a partir d'un certain temps 
 	return (
 		<div>
 			<div>

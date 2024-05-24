@@ -9,7 +9,6 @@ function Playlists() {
   const [selectedPlaylist, setselectedPlaylist] = useState(null);
   const [selectedDevice, setSelectedDevice] = useState(null);
 
-
   const [button] = useState(true);
 
 
