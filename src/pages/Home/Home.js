@@ -14,7 +14,9 @@ function Home() {
 
   return (
     <>
-      <h1>Spotify Connect - 2</h1>
+      <h1>Spotify Connect - 3</h1>
+      <button onClick={() => getCookies()}>GetCookies</button>
+      <button onClick={() => setCookies()}>SetCookies</button>
       <button onClick={getCookies()}>GetCookies</button>
       <div>
         <p>
