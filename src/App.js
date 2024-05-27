@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import './AppCss.css';
 import Navbar from './components/structure/Navbar/Navbar.js';
-import { Home, Playlists, SignIn, Page404, Dashboard, SignOut, Settings } from './pages'
+import { Home, Home2, Playlists, SignIn, Page404, Dashboard, SignOut, Settings } from './pages'
 import { UserProvider } from './context/userContext.jsx';
 import { UserSettingsProvider } from './context/userSettingsContext.jsx';
 

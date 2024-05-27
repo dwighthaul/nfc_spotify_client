@@ -25,3 +25,5 @@ function Home2() {
 		</div>
 	);
 }
+
+export default Home2
