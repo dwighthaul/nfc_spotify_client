@@ -3,13 +3,25 @@ import ServerService from '../../services/ServerService';
 
 function Home() {
 
+
   const getCookies = () => {
+    console.log("Get Cookies")
     ServerService.getCookies((result) => {
+      console.log("Get Cookies OK")
       console.log(result)
     }, (error) => {
       console.log(error)
     })
 
+  }
+  const setCookies = () => {
+    console.log("Set Cookies")
+    ServerService.setCookies((result) => {
+      console.log("Set Cookies OK")
+      console.log(result)
+    }, (error) => {
+      console.log(error)
+    })
   }
 
   return (
