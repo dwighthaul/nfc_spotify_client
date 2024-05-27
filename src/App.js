@@ -6,7 +6,6 @@ import Navbar from './components/structure/Navbar/Navbar.js';
 import { Home, Playlists, SignIn, Page404, Dashboard, SignOut, Settings } from './pages'
 import { UserProvider } from './context/userContext.jsx';
 import { UserSettingsProvider } from './context/userSettingsContext.jsx';
-import Home2 from './pages/Home/Home2.js';
 
 
 export default class App extends React.Component {
@@ -21,7 +20,6 @@ export default class App extends React.Component {
                 <Routes>
                   <Route path='/' exact element={<Home />} />
                   <Route path='/home' exact element={<Home />} />
-                  <Route path='/home2' exact element={<Home2 />} />
                   <Route path='/playlist' exact element={<Playlists />} />
                   <Route path='/sign-in' element={<SignIn />} />
                   <Route path='/settings' element={<Settings />} />
