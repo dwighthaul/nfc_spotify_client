@@ -13,7 +13,6 @@ function Home() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ /* your data */ })
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -36,7 +35,6 @@ function Home() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ /* your data */ })
     })
       .then(response => response.json())
       .then(data => console.log(data))
