@@ -10,8 +10,7 @@ class ServerService {
 		fetch(`${BASE_URL}/${endPoint}`, {
 			headers: { 'Content-Type': 'application/json' },
 			"method": HTTPMethod.GET,
-			"credentials": 'include',
-			mode: 'cors'
+			"credentials": 'include'
 		})
 			.then(response => {
 				if (!response.ok) {
@@ -36,8 +35,7 @@ class ServerService {
 			headers: { 'Content-Type': 'application/json' },
 			"method": HTTPMethod.POST,
 			"credentials": 'include',
-			"body": JSON.stringify(body),
-			mode: 'cors'
+			"body": JSON.stringify(body)
 		})
 			.then(response => {
 
