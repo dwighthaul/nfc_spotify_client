@@ -7,7 +7,7 @@ function Home() {
   const getCookies = () => {
     console.log("Get Cookies")
 
-    fetch('http://api.dwighthaul.com/get-cookie', {
+    fetch('https://serveur.dwighthaul.net/get-cookie', {
       method: 'GET', // or GET, PUT, etc.
       credentials: 'include', // Include credentials (cookies) in the request
       headers: {
@@ -29,7 +29,7 @@ function Home() {
   const setCookies = () => {
     console.log("Set Cookies")
 
-    fetch('http://api.dwighthaul.com/set-cookie', {
+    fetch('https://serveur.dwighthaul.net/set-cookie', {
       method: 'GET', // or GET, PUT, etc.
       credentials: 'include', // Include credentials (cookies) in the request
       headers: {
