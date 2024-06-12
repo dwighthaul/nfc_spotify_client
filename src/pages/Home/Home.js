@@ -1,55 +1,27 @@
 import React from 'react';
-
 import ServerService from '../../services/ServerService';
 
 function Home() {
 
+
   const getCookies = () => {
     console.log("Get Cookies")
-
-    fetch('https://serveur.dwighthaul.net/get-cookie', {
-      method: 'GET', // or GET, PUT, etc.
-      credentials: 'include', // Include credentials (cookies) in the request
-      headers: {
-        'Content-Type': 'application/json'
-      },
+    ServerService.getCookies((result) => {
+      console.log("Get Cookies OK")
+      console.log(result)
+    }, (error) => {
+      console.log(error)
     })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-    /*
-        ServerService.getCookies((result) => {
-          console.log("Get Cookies OK")
-          console.log(result)
-        }, (error) => {
-          console.log(error)
-        })
-    */
+
   }
   const setCookies = () => {
     console.log("Set Cookies")
-
-    fetch('https://serveur.dwighthaul.net/set-cookie', {
-      method: 'GET', // or GET, PUT, etc.
-      credentials: 'include', // Include credentials (cookies) in the request
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-
-
-    /*
     ServerService.setCookies((result) => {
       console.log("Set Cookies OK")
       console.log(result)
     }, (error) => {
       console.log(error)
     })
-    */
-
   }
 
   return (

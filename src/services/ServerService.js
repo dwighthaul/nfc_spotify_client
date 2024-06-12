@@ -124,11 +124,11 @@ class ServerService {
 	}
 
 	static setCookies = (callbackSuccess, callbackError) => {
-		ServerService.#getData('set-cookie', callbackSuccess, callbackError)
+		ServerService.#getData('cookie/set-cookie', callbackSuccess, callbackError)
 	}
 
 	static getCookies = (callbackSuccess, callbackError) => {
-		ServerService.#getData('get-cookie', callbackSuccess, callbackError)
+		ServerService.#getData('cookie/get-cookie', callbackSuccess, callbackError)
 	}
 }
 
