@@ -130,6 +130,7 @@ class ServerService {
 	static getCookies = (callbackSuccess, callbackError) => {
 		ServerService.#getData('cookie/get-cookie', callbackSuccess, callbackError)
 	}
+
 }
 
 export default ServerService;
