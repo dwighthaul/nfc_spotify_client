@@ -70,7 +70,7 @@ const SignIn = () => {
         console.log(settingsAreOk);
         // Je prefere utiliser le contexte du settings que sessionStorage.getItem("SettingsAreOk")
         if (settingsAreOk == true) {
-          openNewWindow2("http://localhost:3000/api/v1/login_spotify");
+          openNewWindow2("http://localhost:3000/spotify/login");
         }
         console.log("end");
       });

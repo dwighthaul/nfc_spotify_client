@@ -38,7 +38,7 @@ export default function Settings ()
         if (clientId != '' && clientSecret != '') {
             // On a pas encore fait la redirection
             if (isClientIdAndSecret == false) {
-              openNewWindow("http://localhost:3000/api/v1/login_spotify");
+              openNewWindow("http://localhost:3000/spotify/login");
             }
             userHasClienIdAndSecret(true); 
         } 

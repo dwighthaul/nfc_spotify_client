@@ -1,7 +1,7 @@
 const { HTTPMethod } = require('http-method-enum')
 
 const BASE_URL = `${process.env.REACT_APP_SERVEUR_ENDPOINT}`
-//:${process.env.REACT_APP_SERVEUR_PORT}
+//const BASE_URL = ${process.env.REACT_APP_SERVEUR_PORT}
 
 class ServerService {
 
@@ -76,29 +76,29 @@ class ServerService {
 	}
 
 	static fetchPlaylists = (callbackSuccess, callbackError) => {
-		ServerService.#getData('api/v1/playlists', callbackSuccess, callbackError)
+		ServerService.#getData('spotify/playlists', callbackSuccess, callbackError)
 	}
 
 	static lancerPlaylist(selectedDevice, selectedPlaylist, callbackSuccess, callbackError) {
-		let endPoint = 'api/v1/launch_song/?id_device=' + selectedDevice + '&playlist_uri=' + selectedPlaylist
+		let endPoint = 'spotify/launch_song/?id_device=' + selectedDevice + '&playlist_uri=' + selectedPlaylist
 		ServerService.#getData(endPoint, callbackSuccess, callbackError)
 	}
 
 	static fetchDevices = (callbackSuccess, callbackError) => {
-		ServerService.#getData('api/v1/devices', callbackSuccess, callbackError)
+		ServerService.#getData('spotify/devices', callbackSuccess, callbackError)
 	}
 
 	static fetchUserInfos = (callbackSuccess, callbackError) => {
-		ServerService.#getData('getSession', callbackSuccess, callbackError)
+		ServerService.#getData('user/getSession', callbackSuccess, callbackError)
 	}
 
 	static fetchUsersInfos = (callbackSuccess, callbackError) => {
-		ServerService.#getData('getUsers', callbackSuccess, callbackError)
+		ServerService.#getData('user/getUsers', callbackSuccess, callbackError)
 	}
 
 
 	static fetchCliendIdAndSecret = (callbackSuccess, callbackError) => {
-		ServerService.#getData('getClientIdAndSecret', callbackSuccess, callbackError)
+		ServerService.#getData('user/getClientIdAndSecret', callbackSuccess, callbackError)
 	}
 
 
@@ -107,12 +107,12 @@ class ServerService {
 			username: username,
 			password: password
 		}
-		ServerService.#postData('login', body, callbackSuccess, callbackError)
+		ServerService.#postData('user/login', body, callbackSuccess, callbackError)
 	}
 
 	static sendLogOut = (callbackSuccess, callbackError) => {
 		var body = {}
-		ServerService.#postDataNoReturnData('logout', body, callbackSuccess, callbackError)
+		ServerService.#postDataNoReturnData('user/logout', body, callbackSuccess, callbackError)
 	}
 
 	static saveSpotifyClient = (clientId, clientSecret, callbackSuccess, callbackError) => {
@@ -120,7 +120,7 @@ class ServerService {
 			clientId: clientId,
 			clientSecret: clientSecret
 		}
-		ServerService.#postDataNoReturnData('updateSettings', body, callbackSuccess, callbackError)
+		ServerService.#postDataNoReturnData('spotify/updateSettings', body, callbackSuccess, callbackError)
 	}
 
 	static setCookies = (callbackSuccess, callbackError) => {
