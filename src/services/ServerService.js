@@ -96,6 +96,11 @@ class ServerService {
 		ServerService.#getData('user/getUsers', callbackSuccess, callbackError)
 	}
 
+	static fetchUsersInfosSecure = (callbackSuccess, callbackError) => {
+		ServerService.#getData('user/getUsersSecure', callbackSuccess, callbackError)
+	}
+	getUsersSecure
+
 
 	static fetchCliendIdAndSecret = (callbackSuccess, callbackError) => {
 		ServerService.#getData('user/getClientIdAndSecret', callbackSuccess, callbackError)
@@ -125,6 +130,10 @@ class ServerService {
 
 	static setCookies = (callbackSuccess, callbackError) => {
 		ServerService.#getData('cookie/set-cookie', callbackSuccess, callbackError)
+	}
+
+	static setCookiesAuth = (callbackSuccess, callbackError) => {
+		ServerService.#getData('cookie/set-cookie-authorisation', callbackSuccess, callbackError)
 	}
 
 	static getCookies = (callbackSuccess, callbackError) => {

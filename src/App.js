@@ -6,6 +6,7 @@ import Navbar from './components/structure/Navbar/Navbar.js';
 import { Home, Playlists, SignIn, Page404, Dashboard, SignOut, Settings } from './pages'
 import { UserProvider } from './context/userContext.jsx';
 import { UserSettingsProvider } from './context/userSettingsContext.jsx';
+import Cookie from './pages/Cookie/Cookie.js';
 
 
 export default class App extends React.Component {
@@ -26,6 +27,7 @@ export default class App extends React.Component {
                   <Route path='/404' element={<Page404 />} />
                   <Route path='/logout' element={<SignOut />} />
                   <Route path='/dashboard' element={<Dashboard />} />
+                  <Route path='/cookie' element={<Cookie />} />
                   <Route path='*' element={<Page404 />} />
                 </Routes>
               </div>
