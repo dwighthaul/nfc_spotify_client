@@ -17,7 +17,30 @@ class ServerService {
 					callbackError(response)
 					throw new Error('Failed to fetch data');
 				}
+				console.log(response);
+				console.log(response.json);
 				return response.json();
+			})
+			.then(data => {
+				callbackSuccess(data)
+			})
+			.catch(error => {
+				callbackError(error)
+			});
+	}
+
+	static #getDataNoJson(endPoint, callbackSuccess, callbackError) {
+		fetch(`${BASE_URL}/${endPoint}`, {
+			headers: { 'Content-Type': 'application/json' },
+			"method": HTTPMethod.GET,
+			"credentials": 'include'
+		})
+			.then(response => {
+				if (!response.ok) {
+					callbackError(response)
+					throw new Error('Failed to fetch data');
+				}
+				return response;
 			})
 			.then(data => {
 				callbackSuccess(data)
@@ -80,8 +103,8 @@ class ServerService {
 	}
 
 	static lancerPlaylist(selectedDevice, selectedPlaylist, callbackSuccess, callbackError) {
-		let endPoint = 'spotify/launch_song/?id_device=' + selectedDevice + '&playlist_uri=' + selectedPlaylist
-		ServerService.#getData(endPoint, callbackSuccess, callbackError)
+		let endPoint = 'spotify/launchPlaylist/?id_device=' + selectedDevice + '&playlist_uri=' + selectedPlaylist
+		ServerService.#getDataNoJson(endPoint, callbackSuccess, callbackError)
 	}
 
 	static fetchDevices = (callbackSuccess, callbackError) => {

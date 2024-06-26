@@ -26,13 +26,11 @@ function Playlists() {
   useEffect(() => {
     const getPlaylist = () => {
       ServerService.fetchPlaylists((data) => {
-
         if (data && data.items) {
           setPlaylist(data.items);
-
         }
-
       }, (error) => {
+        console.log(error);
       });
     }
 

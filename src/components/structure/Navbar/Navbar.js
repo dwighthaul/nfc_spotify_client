@@ -82,7 +82,7 @@ function Navbar() {
                     )}
             </div>
             <div className='nav-item'>
-                <Link className='nav-links' style={{ textDecoration: 'none' }} onClick={toggleDtopDown}> Jojo {isDisplayDropDown ? "▲" : "▼"}</Link>
+                <Link className='nav-links' style={{ textDecoration: 'none' }} onClick={toggleDtopDown}> {username} {isDisplayDropDown ? "▲" : "▼"}</Link>
               {
                 isDisplayDropDown ?
                   <div className='navbar navbar-dropdown'>
