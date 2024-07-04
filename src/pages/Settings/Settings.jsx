@@ -8,6 +8,7 @@ function openNewWindow(url) {
   const windowFeatures = {
     noreferrer: true, // Equivalent to rel="noreferrer"
     noopener: true,   // Equivalent to rel="noopener"
+    popup: true
   };
 
   // Construct a string of properties
@@ -20,8 +21,7 @@ function openNewWindow(url) {
 }
 
 
-export default function Settings () 
-{
+export default function Settings() {
   const [clientId, setClientId] = useState('');
 
   const [clientSecret, setClientSecret] = useState('');
@@ -35,34 +35,34 @@ export default function Settings ()
     event.preventDefault();
     ServerService.saveSpotifyClient(clientId, clientSecret, () => {
       // Pareil ici il y a une logique de validation qui devrait transparaitre de maniere plus evidente (ou au moins dans un module réutilisable)
-        if (clientId != '' && clientSecret != '') {
-            // On a pas encore fait la redirection
-            if (isClientIdAndSecret == false) {
-              openNewWindow("http://localhost:3000/spotify/login");
-            }
-            userHasClienIdAndSecret(true); 
-        } 
-        else {
-          userHasClienIdAndSecret(false); 
+      if (clientId != '' && clientSecret != '') {
+        // On a pas encore fait la redirection
+        if (isClientIdAndSecret == false) {
+          openNewWindow(`${process.env.REACT_APP_SERVEUR_ENDPOINT}/spotify/login`);
         }
-        console.log("Settings saved");
-        navigate("/home");
+        userHasClienIdAndSecret(true);
+      }
+      else {
+        userHasClienIdAndSecret(false);
+      }
+      console.log("Settings saved");
+      navigate("/home");
     }, () => {
       console.log("Failed to update settings");
     });
   };
 
   const getSettings = () => {
-		ServerService.fetchCliendIdAndSecret(
+    ServerService.fetchCliendIdAndSecret(
       (data) => {
         const savedClientId = data?.clientId ?? '';
         setClientId(savedClientId);
         const savedClientSecret = data?.clientSecret ?? '';
         setClientSecret(savedClientSecret);
-		}
-    , (error) => { 
-      console.log("error fetching settings :" + error);
-    }); 
+      }
+      , (error) => {
+        console.log("error fetching settings :" + error);
+      });
   }
 
 
@@ -71,7 +71,7 @@ export default function Settings ()
 
   }, []);
 
- 
+
 
   return (
     <div className="settings-container">

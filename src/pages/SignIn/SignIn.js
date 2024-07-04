@@ -34,12 +34,12 @@ const SignIn = () => {
   const [failedLoggin, setFailedLoggin] = useState(false);
 
   const getSettingsAreOk = (succesCallback) => {
-		ServerService.fetchCliendIdAndSecret(
+    ServerService.fetchCliendIdAndSecret(
       (data) => {
         const clientId = data?.clientId ?? '';
         const clientSecret = data?.clientSecret ?? '';
         let settingsAreOk;
-        if (clientId !== '' && clientSecret !== '' ) {
+        if (clientId !== '' && clientSecret !== '') {
           settingsAreOk = true;
         } else {
           settingsAreOk = false
@@ -49,10 +49,10 @@ const SignIn = () => {
         // Il y a une petite decorrelation entre les 2 noms, on verra plus tard
         userHasClienIdAndSecret(settingsAreOk);
         succesCallback(settingsAreOk);
-		}
-    , (error) => { 
-      console.log("error fetching settings :" + error);
-    }); 
+      }
+      , (error) => {
+        console.log("error fetching settings :" + error);
+      });
   }
 
   const handleSubmit = (event) => {
@@ -63,14 +63,14 @@ const SignIn = () => {
       sessionStorage.setItem("username", data.username)
       sessionStorage.setItem("isConnected", true)
       console.log("Login OK")
-      
+
       // J'utilise un bool en parametre dans la lambda car les changement par context on l'air d'être asynchrone
       // En tt cas je met a true mais ça ne passe pas le if(isClientIdAndSecret == true) c'est bizarre
       getSettingsAreOk((settingsAreOk) => {
         console.log(settingsAreOk);
         // Je prefere utiliser le contexte du settings que sessionStorage.getItem("SettingsAreOk")
         if (settingsAreOk == true) {
-          openNewWindow2("http://localhost:3000/spotify/login");
+          openNewWindow2(`${process.env.REACT_APP_SERVEUR_ENDPOINT}/spotify/login`);
         }
         console.log("end");
       });
@@ -84,7 +84,7 @@ const SignIn = () => {
 
   return (
     <div className="signup-container">
-      
+
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
