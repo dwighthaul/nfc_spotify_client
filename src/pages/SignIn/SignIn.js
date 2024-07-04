@@ -11,6 +11,7 @@ function openNewWindow2(url) {
   const windowFeatures = {
     noreferrer: true, // Equivalent to rel="noreferrer"
     noopener: true,   // Equivalent to rel="noopener"
+    popup: true
   };
 
   // Construct a string of properties
