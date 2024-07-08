@@ -1,12 +1,13 @@
 import React from 'react';
 import ServerService from '../../services/ServerService';
+import ServerCookie from '../../services/ServerCookie';
 
 function Home() {
 
 
   const getCookies = () => {
     console.log("Get Cookies")
-    ServerService.getCookies((result) => {
+    ServerCookie.getCookies((result) => {
       console.log("Get Cookies OK")
       console.log(result)
     }, (error) => {
@@ -16,7 +17,7 @@ function Home() {
   }
   const setCookies = () => {
     console.log("Set Cookies")
-    ServerService.setCookies((result) => {
+    ServerCookie.setCookies((result) => {
       console.log("Set Cookies OK")
       console.log(result)
     }, (error) => {
